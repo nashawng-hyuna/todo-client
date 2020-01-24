@@ -1,0 +1,63 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Get food",
+      "description": "Go to the supermarket",
+      "uid": 1
+    },
+    {
+      "id": 2,
+      "title": "Get snack",
+      "description": "Go to the supermarket",
+      "uid": 1
+    },
+    {
+      "id": 3,
+      "title": "Football",
+      "description": "Go to the supermarket",
+      "uid": 2
+    },
+    {
+      "id": 4,
+      "title": "Basketball",
+      "description": "Go to the supermarket",
+      "uid": 2
+    },
+    {
+      "id": 5,
+      "title": "Sleep",
+      "description": "Go to the supermarket",
+
+      "uid": 2
+    },
+    {
+      "id": 6,
+      "title": "Run",
+      "description": "Go to the supermarket",
+
+      "uid": 1
+    },
+    {
+      "id": 7,
+      "title": "Gym",
+      "description": "Go to the supermarket",
+      "uid": 1
+    },
+    {
+      "id": 8,
+      "title": "Get food",
+      "description": "Go to the supermarket",
+      "uid": 1
+    }
+  ],
+
+  "users": [
+    {
+      "id": 1,
+      "name": "John"
+    },
+
+    { "id": 2, "name": "William" }
+  ]
+}
