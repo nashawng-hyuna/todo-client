@@ -29,12 +29,27 @@ export default {
   },
   data() {
     return {
+      token: null,
       items: [],
       hasData: false
     };
   },
   async created() {
-    const result = await axios.get("http://localhost:3000/tasks");
+    this.token = JSON.parse(localStorage.getItem("access_token"));
+
+    if (!this.token) {
+      return this.$router.push("/login");
+    }
+
+    const result = await axios.get(
+      "http://18.213.45.127:5000/api/tasks/?page=1&pageSize=5 ",
+      {
+        headers: {
+          "x-auth-token": this.token
+        }
+      }
+    );
+
     if (result.data) {
       this.hasData = true;
       return (this.items = result.data);

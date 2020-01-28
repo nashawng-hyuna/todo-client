@@ -3,18 +3,22 @@
     <nav style="background-color:green; padding:1%">
       <ul>
         <li style="display:inline; margin-right:5%;">
-          <router-link to="#"> Home </router-link>
+          <router-link to="/welcome"> Home </router-link>
         </li>
         <li style="display:inline; margin-right:5%">
           <router-link to="/"> Todos </router-link>
         </li>
 
-        <li style="display:inline;  margin-right:5%">
+        <!-- <li style="display:inline;  margin-right:5%">
           <router-link to="/register">Register </router-link>
+        </li> -->
+
+        <li style="display:inline; margin-right:5%">
+          <router-link to="/login"> Login </router-link>
         </li>
 
-        <li style="display:inline">
-          <router-link to="/login"> Login </router-link>
+        <li style="display:inline; color:green">
+          <a href="#" v-on:click="logout">Logout</a>
         </li>
       </ul>
     </nav>
@@ -25,13 +29,11 @@
 /*eslint-disable*/
 export default {
   name: "Navbar",
-  data: function() {
-    return {
-      links: {
-        login: "/login",
-        todos: "/"
-      }
-    };
+  methods: {
+    logout() {
+      localStorage.removeItem("access_token");
+      this.$router.push("/welcome");
+    }
   }
 };
 </script>

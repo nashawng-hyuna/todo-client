@@ -5,6 +5,7 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import Todos from "../components/Todos";
 import OneTodo from "../components/OneTodo";
+import Home from "../components/Home";
 
 //import HelloWorld from "@/components/HelloWorld";
 
@@ -28,9 +29,14 @@ export default new Router({
       component: Todos
     },
     {
-      path: "/todo/:id",
+      path: "/todo/:click/:id",
       name: "OneTodo",
       component: OneTodo
+    },
+    {
+      path: "/welcome",
+      name: "Home",
+      component: Home
     }
   ]
 });

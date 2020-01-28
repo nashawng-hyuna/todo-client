@@ -14,13 +14,13 @@
       name="password"
       placeholder="Password"
     />
-    <label for="confirm"> Confirm Password </label>
+    <!-- <label for="confirm"> Confirm Password </label>
     <input
       v-model="confirm"
       type="password"
       name="confirm"
       placeholder="Confirm Password"
-    />
+    /> -->
     <button>Submit</button>
     <template v-if="isError">
       <br />
@@ -40,7 +40,8 @@ export default {
       password: null,
       confirm: null,
       isError: false,
-      error: null
+      error: null,
+      token: null
     };
   },
   methods: {
@@ -58,20 +59,25 @@ export default {
         return (this.error = "Please enter a password");
       }
 
-      if (!this.confirm) {
-        this.isError = true;
-        return (this.error = "Please confirm password");
-      }
+      // if (!this.confirm) {
+      //   this.isError = true;
+      //   return (this.error = "Please confirm password");
+      // }
 
-      if (this.password !== this.confirm) {
-        this.isError = true;
-        return (this.error = "Passwords do not match");
-      }
+      // if (this.password !== this.confirm) {
+      //   this.isError = true;
+      //   return (this.error = "Passwords do not match");
+      // }
 
-      //post data to server.. test endpoint
-      const result = await axios.get(
-        "https://api.github.com/users/nashawn-griffith"
-      );
+      const result = await axios.post("http://18.213.45.127:5000/api/auth ", {
+        username: this.username,
+        password: this.password
+      });
+
+      this.token = JSON.stringify(result.headers["x-auth-token"]);
+      localStorage.setItem("access_token", this.token);
+
+      this.$router.push("/");
     }
   }
 };
